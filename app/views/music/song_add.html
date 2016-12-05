@@ -1,0 +1,81 @@
+<style>
+    .content-row md-input-container{
+        padding:0px;
+        margin:0px;
+    }
+</style>
+<md-content layout="column" class="content-toolbar" ng-controller="SongCtrl">
+    <div layout="row">
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" aria-label="Back" ng-href="#music">
+                <md-icon md-svg-icon="img/icons/ic_arrow_back.svg"></md-icon>
+            </md-button>
+            <h2>Song</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" aria-label="Help">
+                <md-icon md-svg-icon="img/icons/ic_help.svg"></md-icon>
+            </md-button>
+        </div>
+    </div>
+    <div layout-gt-sm="row" layout="column" layout-align="center center" layout-padding>
+        <div flex-gt-sm="70" flex-gt-xs-auto flex>
+            <md-card>
+                <form name="songForm" data-ng-submit="addSong()" ng-cloak>
+                    <div class="md-toolbar-tools">
+                        <h2>New Song</h2>
+                        <span flex></span>
+                        <md-button ng-click="renew()" class="md-accent"
+                                   ng-class="{'md-raised': (songForm.$dirty && songForm.$valid) }"
+                                   aria-label="Renew">Reset
+                        </md-button>
+                        <md-button ng-click="hide()" type="submit" class="md-primary"
+                                   ng-class="{'md-raised': (songForm.$dirty && songForm.$valid) }"
+                                   aria-label="Save Song">Save
+                        </md-button>
+                    </div>
+                    <div layout="column" ng-cloak class="md-inline-form">
+                        <md-content md-theme="docs-dark">
+                            <input multiple type="file"
+                                   id="file"
+                                   ng-hide="true"
+                                   ng-model="fileMp3"
+                                   onchange="angular.element(this).scope().generateMp3InputTag(this)"/>
+                            <label for="file" class="md-button">Browse...(mp3)</label>
+                        </md-content>
+                        <md-content class="content-row" layout-padding>
+                            <div layout-gt-sm="row" ng-repeat="song in songs">
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>Title</label>
+                                    <input ng-model="song.title" required>
+                                </md-input-container>
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>Genre</label>
+                                    <md-select ng-model="song.genre" required="">
+                                        <md-option class="md-primary" ng-click="showAddGenre($event)">Add New
+                                        </md-option>
+                                        <md-option ng-repeat="item in genres"
+                                                   ng-value="item">
+                                            {{item.name}}
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container>
+
+                                <md-input-container class="md-block" flex-gt-sm>
+                                    <label>Artist</label>
+                                    <md-select ng-model="song.artist" required>
+                                        <md-option class="md-primary" ng-click="showAddArtist($event)">Add New
+                                        </md-option>
+                                        <md-option ng-repeat="item in artists"
+                                                   ng-value="item">
+                                            {{item.name}}
+                                        </md-option>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
+                        </md-content>
+                    </div>
+                </form>
+            </md-card>
+        </div>
+    </div>
+</md-content>

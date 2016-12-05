@@ -1,0 +1,19 @@
+<md-content layout="column" class="content-toolbar" flex>
+    <md-toolbar layout="column" flex>
+        <div class="md-medium-tall md-toolbar-tools">
+            <h2>Home</h2>
+        </div>
+        <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+            <md-nav-item md-nav-click="goto('page1')" name="page1">Page One</md-nav-item>
+            <md-nav-item md-nav-click="goto('page2')" name="page2">Page Two</md-nav-item>
+            <md-nav-item md-nav-click="goto('page3')" name="page3">Page Three</md-nav-item>
+        </md-nav-bar>
+    </md-toolbar>
+    <div layout-gt-sm="row" layout="column" layout-align="center center" layout-padding>
+        <div flex-gt-sm="80" flex-gt-xs-auto flex>
+            <md-card layout="column">
+                External content for `<span>{{currentNavItem}}</span>`
+            </md-card>
+        </div>
+    </div>
+</md-content>

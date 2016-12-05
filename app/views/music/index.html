@@ -1,0 +1,57 @@
+<style>
+    .listdemoBasicUsage md-divider {
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+</style>
+<md-content layout="column" class="content-toolbar" ng-controller="MusicCtrl">
+    <div layout="row">
+        <div class="md-toolbar-tools">
+            <h2>Music</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" aria-label="Help">
+                <md-icon md-svg-icon="img/icons/ic_help.svg"></md-icon>
+            </md-button>
+        </div>
+    </div>
+    <div layout-gt-sm="row" layout="column" layout-align="center center" layout-padding>
+        <div flex-gt-sm="80" flex-gt-xs-auto flex>
+            <md-card layout="row">
+                <audio controls id="player" flex="100">
+                    <source></source>
+                </audio>
+            </md-card>
+            <md-card>
+                <md-toolbar layout="row">
+                    <div class="md-toolbar-tools">
+                        <span flex></span>
+                        <md-button class="md-raised"
+                                   ng-href="#music/add"
+                                   aria-label="Add Song">Add Song
+                        </md-button>
+                        <!--ng-href="#music/add"-->
+                        <!--ng-click="showAdvanced($event)"-->
+                        <md-button class="md-icon-button" aria-label="Refresh"
+                                   ng-click="refresh($event)">
+                            <md-icon md-svg-icon="img/icons/ic_refresh.svg"></md-icon>
+                        </md-button>
+                    </div>
+                </md-toolbar>
+                <md-list class="listdemoBasicUsage">
+                    <md-list-item class="md-2-line" ng-repeat="song in songs" ng-click="playSong(song)">
+                        <img ng-src="{{song.artist.photo}}" class="md-avatar"
+                             alt="{{song.artist.photo}}"/>
+                        <div class="md-list-item-text" layout="column">
+                            <h4>{{ song.title }}</h4>
+                            <p>sing by {{ song.artist.name }}</p>
+                        </div>
+                        <span flex></span>
+                        <md-button class="md-icon-button" aria-label="Settings" ng-click="null">
+                            <md-icon md-svg-icon="img/icons/ic_more_vert.svg"></md-icon>
+                        </md-button>
+                    </md-list-item>
+                </md-list>
+            </md-card>
+        </div>
+    </div>
+</md-content>

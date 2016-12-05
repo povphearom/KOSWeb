@@ -1,0 +1,52 @@
+.top-toolbar .md-toolbar-tools {
+    color: #ffffff;
+}
+
+.top-toolbar .md-raised {
+    color: #ffffff;
+}
+
+.top-toolbar svg {
+    fill: #ffffff;
+}
+
+.sidebar-toolbar .md-toolbar-tools {
+    background-color: #F7F7F7;
+    color: #717171;
+    box-shadow: 0px 0px 0px;
+    z-index: 100;
+}
+
+.sidebar-toolbar .md-raised {
+    color: #717171;
+}
+
+.sidebar-toolbar svg {
+    fill: #717171;
+}
+
+.content-toolbar .md-toolbar-tools {
+    background-color: #E9E9E9;
+    color: #717171;
+}
+
+.content-toolbar .md-raised {
+    color: #717171;
+}
+
+.content-toolbar svg {
+    fill: #717171;
+}
+
+.content-toolbar md-nav-bar{
+    background-color: #E9E9E9;
+}
+
+.content-toolbar md-nav-item {
+    color: #717171;
+}
+
+.main-content {
+    padding: 0px;
+    margin: 0px;
+}

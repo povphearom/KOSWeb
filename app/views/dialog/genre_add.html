@@ -1,0 +1,40 @@
+<md-dialog aria-label="Add New Song" class="content-toolbar" flex="30" ng-controller="SongCtrl">
+    <form name="artistForm" data-ng-submit="addGenre()" ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Add New Genre</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div layout-gt-sm="row" layout="column" layout-align="center center" layout-padding>
+                <div flex-gt-sm="100" flex="100">
+                    <div layout="column" ng-cloak class="md-inline-form">
+                        <md-content layout-padding style="background-color: white;">
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>Genre name</label>
+                                <input ng-model="genre.name" required>
+                            </md-input-container>
+
+                            <md-input-container class="md-block">
+                                <label>Description</label>
+                                <textarea ng-model="genre.description" md-maxlength="150" rows="3"
+                                          md-select-on-focus required></textarea>
+                            </md-input-container>
+                        </md-content>
+                    </div>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="hide()" type="submit" class="md-primary"
+                       ng-class="{'md-raised md-hue-1': (artistForm.$dirty && artistForm.$valid) }"
+                       aria-label="Save Song">Save
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
